@@ -1,6 +1,18 @@
 # Pullcrusher
 
 TODO: Write a gem description
+c.f. https://github.com/Miserlou/WhitespaceBot
+
+## Prerequisites
+
+Get dependencies for image optimization, on MacOSX:
+
+    brew install advancecomp gifsicle jpegoptim jpeg optipng pngcrush
+
+Debian/Ubuntu:
+
+    sudo apt-get install -y advancecomp gifsicle jpegoptim libjpeg-progs optipng pngcrush
+
 
 ## Installation
 
