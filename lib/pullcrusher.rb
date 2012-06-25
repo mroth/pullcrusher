@@ -5,6 +5,7 @@ require "image_optim"
 require "octokit"
 require "virtus"
 
+module Pullcrusher
 class Pullcrusher
 
     attr_accessor :ok_client, :github_username
@@ -45,6 +46,9 @@ class Pullcrusher
         dirname = repo_name.gsub('/','-')
         target = "/tmp/pullcrusher/#{dirname}"
         uri = repo_from_shortname(repo_name).clone_url
+
+        #TODO: check if directory already exists, if so, clobber it
+
         g = Git.clone(uri,target)
         #g.dir.to_s
     end
@@ -137,5 +141,5 @@ class Pullcrusher
         puts "*** Done! Pull request is at #{pr.html_url}"
     end
 end
-
+end
 
