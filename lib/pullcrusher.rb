@@ -103,7 +103,7 @@ class Pullcrusher
         Results.new(:bytes_saved => bytes_saved, :filez_optimized => filez_optimized)
     end
 
-    def fork_and_pull()
+    def fork_and_pull(fs_repo, repo_name)
         #TODO: set name and email for git commits?!
         #nope handle this in bot insteat
         #fs_repo.config('user.name', 'PullCrusher Bot')
@@ -119,7 +119,7 @@ class Pullcrusher
 
         #DONE: fork original repo (via octokit)
         puts "*** Forking the original repo on github"
-        fork = ok_client.fork(repo_name)
+        fork = @ok_client.fork(repo_name)
 
         #DONE: add forked repo as a new remote to git repo (or just change default?)
         fs_repo.add_remote('myfork', fork.ssh_url)
@@ -130,7 +130,7 @@ class Pullcrusher
 
         puts "*** Creating a pull request..."
         #def create_pull_request(repo, base, head, title, body, options={})
-        pr = ok_client.create_pull_request(
+        pr = @ok_client.create_pull_request(
             repo_name,
             "master", #BASE
             "#{$username}:pullcrushed", #HEAD
