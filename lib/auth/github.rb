@@ -6,12 +6,13 @@
 require 'bundler/setup'
 require 'octokit'
 require 'yaml'
+require 'highline/import'
 
 class GitHubAuth
   # Change NOTE, SCOPES and CREDENTIALS to match your app's needs.
-  NOTE = "Octokit example"
-  SCOPES = "user repo"
-  CREDENTIALS = File.join("#{ENV['HOME']}", ".config", "sample_app.yml")
+  NOTE = "Pullcrusher!"
+  SCOPES = "user, repo"
+  CREDENTIALS = File.join("#{ENV['HOME']}", ".config", "pullcrusher.yml")
 
   def self.client
     new.client
@@ -43,30 +44,32 @@ class GitHubAuth
   end
 
   def ask_login
-    p "Enter your GitHub username"
-    gets.chomp
+    #p "Enter your GitHub username"
+    #gets.chomp
+    ask("Enter you GitHub username: ")
+  end
+
+  def ask_password
+    ask("Enter your Github password (this will NOT be stored): ") { |q| q.echo = '*' }
   end
 
   # No-echo password input, stolen from Defunkt's `hub`
   # Won't work in Windows
-  def ask_password
-    p "Enter your GitHub password (this will NOT be stored)"
-    tty_state = `stty -g`
-    system 'stty raw -echo -icanon isig' if $?.success?
-    pass = ''
-    while char = $stdin.getbyte and not (char == 13 or char == 10)
-      if char == 127 or char == 8
-        pass[-1,1] = '' unless pass.empty?
-      else
-        pass << char.chr
-      end
-    end
-    pass
-  ensure
-    system "stty #{tty_state}" unless tty_state.empty?
-  end
+  #def ask_password
+    #p "Enter your GitHub password (this will NOT be stored)"
+    #tty_state = `stty -g`
+    #system 'stty raw -echo -icanon isig' if $?.success?
+    #pass = ''
+    #while char = $stdin.getbyte and not (char == 13 or char == 10)
+      #if char == 127 or char == 8
+        #pass[-1,1] = '' unless pass.empty?
+      #else
+        #pass << char.chr
+      #end
+    #end
+    #pass
+  #ensure
+    #system "stty #{tty_state}" unless tty_state.empty?
+  #end
 end
 
-# Example
-client = GitHubAuth.client
-client.follows? "stevenh512"

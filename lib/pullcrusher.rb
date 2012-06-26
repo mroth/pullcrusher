@@ -1,4 +1,5 @@
 require "pullcrusher/version"
+require "auth/github"
 
 require "git"
 require "image_optim"
@@ -12,13 +13,16 @@ class Pullcrusher
 
     # Class constructor
     #
-    # github_username - github username as a string
-    # github_password - github password as a string
+    # authclient - An initialized Octokit client with authorization.
+    # If none is provided, a public client will be used (which cannot perform many actions)
     #
-    def initialize(github_username, github_password)
-        @github_username = github_username
-        #@github_password = github_password
-        @ok_client = Octokit::Client.new(:login => github_username, :password => github_password)
+    def initialize(authclient=nil)
+        unless authclient.nil?
+            @ok_client = authclient
+            @github_username = authclient.login
+        else
+            @ok_client = Octokit::Client.new
+        end
     end
 
     class Results
