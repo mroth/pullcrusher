@@ -6,6 +6,8 @@ require "image_optim"
 require "octokit"
 require "virtus"
 
+require "pry"
+
 module Pullcrusher
 class Pullcrusher
 
@@ -68,6 +70,11 @@ class Pullcrusher
         Dir.glob("**/*.{jpg,png,gif}")
     end
 
+    # Convenience method to take a repo by string name, and do all the processing.
+    #
+    # repo_name - the github style repository name
+    #
+    # Returns an array containing both a Results hash, and the fs_repo reference that was cloned
     def process_repo(repo_name)
         puts "*** Asking Github to find us the URI for #{repo_name}"
         orig_repo = repo_from_shortname(repo_name)
@@ -85,7 +92,7 @@ class Pullcrusher
 
         #puts "-"*80
         puts "*** #{results.filez_optimized} files were optimized for a total savings of #{results.bytes_saved} bytes."
-        return results
+        return results, fs_repo
     end
 
 
@@ -128,7 +135,14 @@ class Pullcrusher
         Results.new(:bytes_saved => bytes_saved, :filez_optimized => filez_optimized)
     end
 
-    def fork_and_pull(fs_repo, repo_name)
+    # Fork and pull baby!
+    #
+    # fs_repo - git handle to the filesystem repo
+    # repo_name - github style name as a string
+    # results - a Pullcrusher::Results object from the optimization
+    #
+    # Returns nothing?
+    def fork_and_pull(fs_repo, repo_name, results)
         #TODO: set name and email for git commits?!
         #nope handle this in bot insteat
         #fs_repo.config('user.name', 'PullCrusher Bot')
@@ -158,7 +172,7 @@ class Pullcrusher
         pr = @ok_client.create_pull_request(
             repo_name,
             "master", #BASE
-            "#{$username}:pullcrushed", #HEAD
+            "#{@github_username}:pullcrushed", #HEAD
             "Optimized image files via pullcrusher",
             "Hi there!  I've used [pullcrusher](http://github.com/mroth/pullcrusher) to optimize images for this this repository losslessly.\n\n
             #{results.filez_optimized} files were optimized for a total savings of #{results.bytes_saved} bytes."

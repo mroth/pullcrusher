@@ -37,11 +37,12 @@ pc = Pullcrusher::Pullcrusher.new(authclient)
 #
 # do it!
 #
-results = pc.process_repo( parse_repo_from_args )
+repo_name = parse_repo_from_args
+results, fs_repo = pc.process_repo( repo_name )
 exit if (results.filez_optimized < 1)
 
 input = ask "Do you want to automatically fork and pull request? [y/N] "
 if input.match /[yY]/
-    puts "FOOOOO"
+    pc.fork_and_pull(fs_repo, repo_name, results)
 end
 
