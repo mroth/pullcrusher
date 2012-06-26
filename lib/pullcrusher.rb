@@ -51,10 +51,10 @@ class Pullcrusher
         target = "/tmp/pullcrusher/#{dirname}"
         uri = repo_from_shortname(repo_name).clone_url
 
-        #TODO: check if directory already exists, if so, clobber it
+        #check if tmp directory already exists, if so, clobber it
+        FileUtils.remove_dir(target) if File.directory?(target)
 
         g = Git.clone(uri,target)
-        #g.dir.to_s
     end
 
     # Given a directory, identify any files that are possible candidates for optimization.
