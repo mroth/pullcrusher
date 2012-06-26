@@ -12,6 +12,7 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency "octokit", ">= 1.3.0" #1.3.0 added authorizations
   gem.add_runtime_dependency "virtus"
   gem.add_runtime_dependency "image_optim"
+  gem.add_runtime_dependency "highline"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
