@@ -68,6 +68,27 @@ class Pullcrusher
         Dir.glob("**/*.{jpg,png,gif}")
     end
 
+    def process_repo(repo_name)
+        puts "*** Asking Github to find us the URI for #{repo_name}"
+        orig_repo = repo_from_shortname(repo_name)
+
+        puts "*** Cloning #{orig_repo.ssh_url} to local FS"
+        fs_repo = clone_repo(repo_name)
+
+        puts "*** Finding and processing any candidate files"
+        results = process_files_from_repo( fs_repo )
+
+        #if (results.filez_optimized < 1)
+        #    puts "--- All done, nothing was optimized!"
+        #    return results #we're done, drop out of method
+        #end
+
+        #puts "-"*80
+        puts "*** #{results.filez_optimized} files were optimized for a total savings of #{results.bytes_saved} bytes."
+        return results
+    end
+
+
     # Convenience method to take a Git repository object, identify and process
     def process_files_from_repo(fs_repo)
         process_files( get_candidate_files(fs_repo.dir.to_s) )
