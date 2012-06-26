@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+
+begin
+  require 'pullcrusher'
+  require 'highline/import'
+rescue LoadError
+  require 'rubygems'
+  require 'pullcrusher'
+  require 'highline/import'
+end
+
+#include Pullcrusher
+
+def parse_repo_from_args
+    format_desc = "Repo name should be in github shorthand style, e.g. 'mroth/pullcrusher'"
+    if ARGV.count != 1
+        puts "Usage: pullcrush [github_repo]"
+        puts format_desc
+        exit 0
+    end
+
+    #TODO: test for proper format
+
+    ARGV[0]
+end
+
+#
+# create an authorized github client, handles prompting if needed
+#
+authclient = GitHubAuth.client
+
+#
+# instantiate a Pullcrusher object with that authclient
+#
+pc = Pullcrusher::Pullcrusher.new(authclient)
+
+#
+# do it!
+#
+results = pc.process_repo( parse_repo_from_args )
+exit if (results.filez_optimized < 1)
+
+input = ask "Do you want to automatically fork and pull request? [y/N] "
+if input.match /[yY]/
+    puts "FOOOOO"
+end
+
