@@ -11,7 +11,7 @@ require 'highline/import'
 class GitHubAuth
   # Change NOTE, SCOPES and CREDENTIALS to match your app's needs.
   NOTE = "Pullcrusher!"
-  SCOPES = "user, repo"
+  SCOPES = ["user","repo"]
   CREDENTIALS = File.join("#{ENV['HOME']}", ".config", "pullcrusher.yml")
 
   def self.client
