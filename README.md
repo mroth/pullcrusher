@@ -38,6 +38,32 @@ Pullcrusher will locate all images, compress them, and then ask you if
 you want it to automatically fork on github and submit a pull request.
 Simply type "Y" if you like and you are done!
 
+### Sample output
+
+    % pullcrush waferbaby/usesthis
+    *** Asking Github to find us the URI for waferbaby/usesthis
+    *** Cloning git@github.com:waferbaby/usesthis.git to local filesystem
+    *** Finding and processing any candidate files
+        public/images/interviews/chris.ilias.knives.jpg
+            34415 -> 34204 (211 saved)
+        public/images/interviews/chris.ilias.spoons.jpg
+            40466 -> 40126 (340 saved)
+        public/images/interviews/julian.bleecker.cameras.jpg
+            135909 -> 133247 (2662 saved)
+        public/images/interviews/khoi.vinh.ho
+
+[snip]
+
+        public/images/portraits/zed.shaw.jpg
+            143185 -> 141055 (2130 saved)
+    *** 286 files processed, 136 successfully optimized for total savings of 400438 bytes.
+    Do you want to automatically fork and pull request? [y/N] y
+    *** Git branching and commiting all changed files
+    *** Forking the original repo on github
+    *** Pushing changes to your forked copy of the repo
+    *** Creating a pull request...
+    *** Done! Pull request is at https://github.com/waferbaby/usesthis/pull/5
+
 ## SSH setup and caveats
 
 ### SSH
