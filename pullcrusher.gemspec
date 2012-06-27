@@ -4,8 +4,8 @@ require File.expand_path('../lib/pullcrusher/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Matthew Rothenberg"]
   gem.email         = ["mrothenberg@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Optimize all images in a GitHub repository, then easily send a pull request with the changes.}
+  gem.summary       = %q{Optimize all images in a GitHub repository, then easily send a pull request with the changes.}
   gem.homepage      = ""
 
   gem.add_runtime_dependency "git"
