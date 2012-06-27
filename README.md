@@ -50,7 +50,7 @@ Simply type "Y" if you like and you are done!
             40466 -> 40126 (340 saved)
         public/images/interviews/julian.bleecker.cameras.jpg
             135909 -> 133247 (2662 saved)
-        public/images/interviews/khoi.vinh.ho
+        public/images/interviews/khoi.vinh.home.jpg
 
 [snip]
 
