@@ -1,7 +1,12 @@
 # Pullcrusher
 
-TODO: Write a gem description
-c.f. https://github.com/Miserlou/WhitespaceBot
+There are lots of great utilities out there to losslessly optimize
+images, but most people forget to run them.  Pullcrusher makes it easy
+to optimize the images of any GitHub repository, and contribute the
+optimizations back to the maintainer as a pull request.
+
+We stand on the shoulders of giants!  Thanks to: image_optim, ruby-git,
+and octokit.
 
 ## Prerequisites
 
@@ -13,24 +18,44 @@ Debian/Ubuntu:
 
     sudo apt-get install -y advancecomp gifsicle jpegoptim libjpeg-progs optipng pngcrush
 
-
 ## Installation
 
-Add this line to your application's Gemfile:
+*NOTE: This is pre-release!  Thus, these instructions won't work until actually released to rubygems!
+Clone and install manually dev-style in meantime.*
 
-    gem 'pullcrusher'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Install it yourself as:
 
     $ gem install pullcrusher
 
+On some setups (default MacOSX) that may need a `sudo` first.
+
 ## Usage
 
-TODO: Write usage instructions here
+Simply do a `pullcrush [repo_name]` using the github style short-name
+for a repository, e.g. `mroth/pullcrusher`.
+
+Pullcrusher will locate all images, compress them, and then ask you if
+you want it to automatically fork on github and submit a pull request.
+Simply type "Y" if you like and you are done!
+
+## SSH setup and caveats
+
+### SSH
+We use standard git ssh to push changes to your github account.  You'll
+want to make sure you have [SSH keys properly setup](https://help.github.com/articles/generating-ssh-keys). 
+
+(Does anyone actually prefer HTTPS with credential caching as github thinks?  lmk if
+this is something we need to add to pullcrusher).
+
+### GitHub Credentials
+The first time you run pullcrusher, it will ask for your GitHub username
+and password to obtain a oAuth token (or possibly just your password, if 
+it can locate your Github username in your git configuration).  This is 
+totally cool and awesome, but if you don't want that token on your hard 
+drive for any reason, its located at `~/.config/pullcrusher.yml`.
+
+We use this so we can use the Github API to handle forking
+repositories.
 
 ## Contributing
 
@@ -39,3 +64,19 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+I'm trying to learn more about using tests so bonus points if you
+include a test for your new functionality or fix. (Or, if you just want
+to write some tests for existing functionality, that's awesome too!)
+
+## TODO
+Things that still need to be done before v0.0.1 of this gem gets
+released.
+
+  * Minimal error handling
+  * Handle your own repos not just others (cant do a pull request
+    really? I guess just leave it in branch and ask perso to do
+    manually?)
+  * Some very very basic tests, and setup travis-ci to ensure we run on
+    ruby 1.8.7 as well.
+
