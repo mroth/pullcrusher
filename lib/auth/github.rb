@@ -3,7 +3,7 @@
 #
 
 # Use Octokit 1.3.0 or higher for great justice (and Authorizations)
-require 'bundler/setup'
+#require 'bundler/setup' #this was causing trouble with VERSION
 require 'octokit'
 require 'yaml'
 require 'highline/import'
