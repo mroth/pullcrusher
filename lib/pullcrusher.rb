@@ -27,7 +27,9 @@ class Pullcrusher
 
     class Results
         include Virtus
+        attribute :bytes_before, Integer
         attribute :bytes_saved, Integer
+        attribute :filez_candidates, Integer
         attribute :filez_optimized, Integer
     end
 
@@ -77,13 +79,13 @@ class Pullcrusher
         puts "*** Asking Github to find us the URI for #{repo_name}"
         orig_repo = repo_from_shortname(repo_name)
 
-        puts "*** Cloning #{orig_repo.ssh_url} to local FS"
+        puts "*** Cloning #{orig_repo.ssh_url} to local filesystem"
         fs_repo = clone_repo(repo_name)
 
         puts "*** Finding and processing any candidate files"
         results = process_files_from_repo( fs_repo )
 
-        puts "*** #{results.filez_optimized} files were optimized for a total savings of #{results.bytes_saved} bytes."
+        puts "*** #{results.filez_candidates} files processed, #{results.filez_optimized} successfully optimized for total savings of #{results.bytes_saved} bytes."
         return results, fs_repo
     end
 
@@ -110,6 +112,7 @@ class Pullcrusher
 
         filez_optimized = 0
         bytes_saved = 0
+        bytes_total = 0
 
         filez.each do |f|
             size_before =  File.size(f)
@@ -118,12 +121,13 @@ class Pullcrusher
                 filez_optimized += 1
                 size_after = File.size(f)
                 size_diff = size_before - size_after
+                bytes_total += size_before
                 bytes_saved += size_diff
                 puts "\t\t#{size_before} -> #{size_after} (#{size_diff} saved)"
             end
         end
 
-        Results.new(:bytes_saved => bytes_saved, :filez_optimized => filez_optimized)
+        Results.new(:bytes_saved => bytes_saved, :filez_optimized => filez_optimized, :filez_candidates => filez.count)
     end
 
     # Fork and pull baby!
