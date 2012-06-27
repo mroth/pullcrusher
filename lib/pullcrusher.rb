@@ -6,8 +6,6 @@ require "image_optim"
 require "octokit"
 require "virtus"
 
-require "pry"
-
 module Pullcrusher
 class Pullcrusher
 
@@ -85,12 +83,6 @@ class Pullcrusher
         puts "*** Finding and processing any candidate files"
         results = process_files_from_repo( fs_repo )
 
-        #if (results.filez_optimized < 1)
-        #    puts "--- All done, nothing was optimized!"
-        #    return results #we're done, drop out of method
-        #end
-
-        #puts "-"*80
         puts "*** #{results.filez_optimized} files were optimized for a total savings of #{results.bytes_saved} bytes."
         return results, fs_repo
     end
@@ -131,7 +123,6 @@ class Pullcrusher
             end
         end
 
-        #puts "\tOptimized #{filez_optimized} files for a total savings of #{bytes_saved} bytes"
         Results.new(:bytes_saved => bytes_saved, :filez_optimized => filez_optimized)
     end
 
