@@ -2,11 +2,9 @@
 
 begin
   require 'pullcrusher'
-  require 'highline/import'
 rescue LoadError
   require 'rubygems'
   require 'pullcrusher'
-  require 'highline/import'
 end
 
 #include Pullcrusher
