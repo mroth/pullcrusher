@@ -91,6 +91,10 @@ class Pullcrusher
 
 
     # Convenience method to take a Git repository object, identify and process
+    #
+    # fs_repo - ruby-git object for the repo on filesystem
+    #
+    # Returns a Results object
     def process_files_from_repo(fs_repo)
         process_files( get_candidate_files(fs_repo.dir.to_s) )
     end
