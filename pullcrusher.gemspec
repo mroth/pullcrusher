@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["mrothenberg@gmail.com"]
   gem.description   = %q{Optimize all images in a GitHub repository, then easily send a pull request with the changes.}
   gem.summary       = %q{Optimize all images in a GitHub repository, then easily send a pull request with the changes.}
-  gem.homepage      = ""
+  gem.homepage      = "http://github.com/mroth/pullcrusher"
 
   gem.add_runtime_dependency "git"
   gem.add_runtime_dependency "octokit", ">= 1.3.0" #1.3.0 added authorizations
