@@ -13,6 +13,7 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency "virtus"
   gem.add_runtime_dependency "image_optim"
   gem.add_runtime_dependency "highline"
+  gem.add_runtime_dependency "json" #needed for ruby 1.8 #TODO: figure out how to scope to platform?
 
   gem.add_development_dependency "rake"
 
