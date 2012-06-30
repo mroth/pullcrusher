@@ -5,6 +5,7 @@ require "git"
 require "image_optim"
 require "octokit"
 require "virtus"
+require "methadone"
 
 module Pullcrusher
 
