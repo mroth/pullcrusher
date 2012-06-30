@@ -4,6 +4,6 @@ rvm:
   - 1.9.2
   - 1.9.3
 
-before_install:
-  - sudo apt-get update
-  - sudo apt-get install -y advancecomp gifsicle jpegoptim libjpeg-progs optipng pngcrush
+# before_install:
+#   - sudo apt-get update
+#   - sudo apt-get install -y advancecomp gifsicle jpegoptim libjpeg-progs optipng pngcrush
