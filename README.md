@@ -20,10 +20,7 @@ Debian/Ubuntu:
 
 ## Installation
 
-*NOTE: This is pre-release!  Thus, these instructions won't work until actually released to rubygems!
-Clone and install manually dev-style in meantime.*
-
-Install it yourself as:
+Install it via:
 
     $ gem install pullcrusher
 
