@@ -8,7 +8,7 @@ class App
   include Methadone::Main
   include Methadone::CLILogging
 
-  main do # Add args you want: |like,so|
+  main do |repo_name| # Add args you want: |like,so|
     # your program code here
     # You can access CLI options via
     # the options Hash
@@ -26,7 +26,7 @@ class App
     #
     # do it!
     #
-    repo_name = parse_repo_from_args
+    # repo_name = @parse_repo_from_args
     results, fs_repo = pc.process_repo( repo_name )
     exit if (results.filez_optimized < 1)
 
@@ -38,6 +38,7 @@ class App
 
   # supplemental methods here
   def parse_repo_from_args
+    #TODO: THIS IS ALL DEPRECATED, MOVE COMMENTS OUT
     format_desc = "Repo name should be in github shorthand style, e.g. 'mroth/pullcrusher'"
     if ARGV.count != 1
         puts "Usage: pullcrush [github_repo]"
@@ -53,7 +54,7 @@ class App
 
   # Declare command-line interface here
 
-  # description "one line description of your app"
+  description "Crushes images for great justice!\nRepo name should be in github shorthand style, e.g. 'mroth/pullcrusher'"
   #
   # Accept flags via:
   # on("--flag VAL","Some flag")
@@ -69,6 +70,7 @@ class App
   #
   # # Make an argument optional
   # arg :optional_arg, :optional
+  arg :repo_name
 
   version Pullcrusher::VERSION
 
