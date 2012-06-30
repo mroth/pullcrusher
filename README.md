@@ -99,10 +99,10 @@ to write some tests for existing functionality, that's awesome too!)
 Things that still need to be done before v0.0.1 of this gem gets
 released.
 
-  * Minimal error handling
+  * Minimal error handling (somewhat taken care of since Methadone handles exceptions okay) √
   * Handle your own repos not just others (cant do a pull request
-    really? I guess just leave it in branch and ask perso to do
-    manually?)
+    really? I guess just leave it in branch and ask person to do
+    manually?) (PUNTING ON THIS TILL NEXT VERSION)
   * Some very very basic tests, and setup travis-ci to ensure we run on
-    ruby 1.8.7 as well.
+    ruby 1.8.7 as well. √
 
