@@ -8,6 +8,9 @@ optimizations back to the maintainer as a pull request.
 We stand on the shoulders of giants!  Thanks to: image_optim, ruby-git,
 and octokit.
 
+[![Build Status](https://secure.travis-ci.org/mroth/pullcrusher.png?branch=master)](http://travis-ci.org/mroth/pullcrusher)
+[![Dependency Status](https://gemnasium.com/mroth/pullcrusher.png)](https://gemnasium.com/mroth/pullcrusher)
+
 ## Prerequisites
 
 Get dependencies for image optimization, on MacOSX:
