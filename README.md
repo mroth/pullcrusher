@@ -5,8 +5,8 @@ images, but most people forget to run them.  Pullcrusher makes it easy
 to optimize the images of any GitHub repository, and contribute the
 optimizations back to the maintainer as a pull request.
 
-We stand on the shoulders of giants!  Thanks to: image_optim, ruby-git, methadone
-and octokit.
+We stand on the shoulders of giants!  Thanks to: [image_optim](https://github.com/toy/image_optim), [ruby-git](https://github.com/schacon/ruby-git), [methadone](https://github.com/davetron5000/methadone/)
+and [octokit](https://github.com/pengwynn/octokit).
 
 [![Build Status](https://secure.travis-ci.org/mroth/pullcrusher.png?branch=master)](http://travis-ci.org/mroth/pullcrusher)
 [![Dependency Status](https://gemnasium.com/mroth/pullcrusher.png)](https://gemnasium.com/mroth/pullcrusher)
