@@ -31,7 +31,7 @@ On some setups (default MacOSX) that may need a `sudo` first.
 
 ## Usage
 
-Simply do a `pullcrush [repo_name]` using the github style short-name
+Simply do a `pullcrusher [repo_name]` using the github style short-name
 for a repository, e.g. `mroth/pullcrusher`.
 
 Pullcrusher will locate all images, compress them, and then ask you if
@@ -40,7 +40,7 @@ Simply type "Y" if you like and you are done!
 
 ### Sample output
 
-    % pullcrush waferbaby/usesthis
+    % pullcrusher waferbaby/usesthis
     *** Asking Github to find us the URI for waferbaby/usesthis
     *** Cloning git@github.com:waferbaby/usesthis.git to local filesystem
     *** Finding and processing any candidate files
