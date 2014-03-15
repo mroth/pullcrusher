@@ -1,3 +1,9 @@
+0.0.2 (TBD)
+  * redo core loop to take advantage of multi-core systems.
+    - on a quick test with mislav/poignant-guide on my core-i7 system, full run
+      time was reduced from ~103sec -> ~45sec.
+  * better peg version dependencies to stand the test of time.
+
 0.0.1 (30 June 2012)
   * initial release as a gem package
   * fuck it, ship it

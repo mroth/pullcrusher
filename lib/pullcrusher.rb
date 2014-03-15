@@ -111,7 +111,7 @@ module Pullcrusher
         def process_files(filez)
             #TODO: reject any files larger than MAXSIZE
             # perhaps use Enumerable reject for this!
-            
+
             #
             # create an ImageOptim instance
             #
@@ -121,16 +121,17 @@ module Pullcrusher
             bytes_saved = 0
             bytes_total = 0
 
-            filez.each do |f|
-                size_before =  File.size(f)
-                info "\t#{f}"
-                if (io.optimize_image!(f)) #returns true when an optimization has been made
+            io.optimize_images!(filez) do |path,optimized|
+                if optimized
                     filez_optimized += 1
-                    size_after = File.size(f)
+                    size_after = File.size(path)
+                    size_before = optimized.original_size
                     size_diff = size_before - size_after
                     bytes_total += size_before
                     bytes_saved += size_diff
-                    info "\t\t#{size_before} -> #{size_after} (#{size_diff} saved)"
+                    info "\t#{path}\n\t\t#{size_before} -> #{size_after} (#{size_diff} saved)"
+                else
+                    info "\t#{path}"
                 end
             end
 
@@ -151,7 +152,7 @@ module Pullcrusher
             #fs_repo.config('user.email','mrothenberg+pullcrusher@gmail.com')
             #fs_repo.config('credential.git@github.com.username', 'PullcrusherBot')
 
-            
+
             #DONE: commit changed files
             info "*** Git branching and commiting all changed files"
             fs_repo.branch('pullcrushed').checkout
@@ -184,4 +185,3 @@ module Pullcrusher
     end
 
 end
-
