@@ -32,7 +32,7 @@ class App
 
     input = ask "Do you want to automatically fork and pull request? [y/N] "
     if input.match(/[yY]/)
-        pc.fork_and_pull(fs_repo, repo_name, results)
+      pc.fork_and_pull(fs_repo, repo_name, results)
     end
   end
 
@@ -41,9 +41,9 @@ class App
     #TODO: THIS IS ALL DEPRECATED, MOVE COMMENTS OUT
     format_desc = "Repo name should be in github shorthand style, e.g. 'mroth/pullcrusher'"
     if ARGV.count != 1
-        puts "Usage: pullcrush [github_repo]"
-        puts format_desc
-        exit 0
+      puts "Usage: pullcrush [github_repo]"
+      puts format_desc
+      exit 0
     end
 
     #TODO: test for proper format
@@ -66,7 +66,7 @@ class App
   # Or, just call OptionParser methods on opts
   #
   # Require an argument
-  # arg :some_arg 
+  # arg :some_arg
   #
   # # Make an argument optional
   # arg :optional_arg, :optional

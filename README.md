@@ -68,16 +68,16 @@ Simply type "Y" if you like and you are done!
 
 ### SSH
 We use standard git ssh to push changes to your github account.  You'll
-want to make sure you have [SSH keys properly setup](https://help.github.com/articles/generating-ssh-keys). 
+want to make sure you have [SSH keys properly setup](https://help.github.com/articles/generating-ssh-keys).
 
 (Does anyone actually prefer HTTPS with credential caching as github thinks?  lmk if
 this is something we need to add to pullcrusher).
 
 ### GitHub Credentials
 The first time you run pullcrusher, it will ask for your GitHub username
-and password to obtain a oAuth token (or possibly just your password, if 
-it can locate your Github username in your git configuration).  This is 
-totally cool and awesome, but if you don't want that token on your hard 
+and password to obtain a oAuth token (or possibly just your password, if
+it can locate your Github username in your git configuration).  This is
+totally cool and awesome, but if you don't want that token on your hard
 drive for any reason, its located at `~/.config/pullcrusher.yml`.
 
 We use this so we can use the Github API to handle forking
@@ -105,4 +105,3 @@ released.
     manually?) (PUNTING ON THIS TILL NEXT VERSION)
   * Some very very basic tests, and setup travis-ci to ensure we run on
     ruby 1.8.7 as well. √
-
