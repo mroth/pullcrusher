@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency "git", "~>1.2.6"
   gem.add_runtime_dependency "octokit", "~>1.3" #1.3.0 added authorizations, 2.x adds breaking changes
-  gem.add_runtime_dependency "virtus", "~>1.0.2"
+  gem.add_runtime_dependency "virtus", "~>0.5.4" #1.0x breaks 1.8.7/1.9.2 compatibility
   gem.add_runtime_dependency "image_optim", "~>0.12.1"
   gem.add_runtime_dependency "highline", "~>1.6.21"
   gem.add_runtime_dependency "json" #needed for ruby 1.8 #TODO: figure out how to scope to platform?
