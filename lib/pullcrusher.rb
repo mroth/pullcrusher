@@ -29,7 +29,7 @@ module Pullcrusher
         end
 
         class Results
-            include Virtus
+            include Virtus.model
             attribute :bytes_before, Integer
             attribute :bytes_saved, Integer
             attribute :filez_candidates, Integer

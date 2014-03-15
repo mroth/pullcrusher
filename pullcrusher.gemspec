@@ -11,13 +11,14 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency('rdoc')
   gem.add_development_dependency('aruba')
   gem.add_development_dependency('rake','~> 0.9.2')
-  gem.add_dependency('methadone', '~>1.2.1')
 
-  gem.add_runtime_dependency "git"
-  gem.add_runtime_dependency "octokit", ">= 1.3.0" #1.3.0 added authorizations
-  gem.add_runtime_dependency "virtus"
-  gem.add_runtime_dependency "image_optim"
-  gem.add_runtime_dependency "highline"
+  gem.add_dependency('methadone', '~>1.3.2')
+
+  gem.add_runtime_dependency "git", "~>1.2.6"
+  gem.add_runtime_dependency "octokit", "~>1.3" #1.3.0 added authorizations, 2.x adds breaking changes
+  gem.add_runtime_dependency "virtus", "~>1.0.2"
+  gem.add_runtime_dependency "image_optim", "~>0.12.1"
+  gem.add_runtime_dependency "highline", "~>1.6.21"
   gem.add_runtime_dependency "json" #needed for ruby 1.8 #TODO: figure out how to scope to platform?
 
   gem.files         = `git ls-files`.split($\)
