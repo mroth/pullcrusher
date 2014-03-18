@@ -1,3 +1,6 @@
+0.0.3 (18 March 2014)
+  * fix gem install issue on 1.9.3
+
 0.0.2 (15 March 2014)
   * redo core loop to take advantage of multi-core systems.
     - on a quick test with mislav/poignant-guide on my core-i7 system, full run
