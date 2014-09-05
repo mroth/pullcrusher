@@ -1,9 +1,6 @@
 #
 # stating point for this was this gist: https://gist.github.com/2771702
 #
-
-# Use Octokit 1.3.0 or higher for great justice (and Authorizations)
-#require 'bundler/setup' #this was causing trouble with VERSION
 require 'octokit'
 require 'yaml'
 require 'highline/import'
