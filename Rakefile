@@ -26,11 +26,8 @@ Cucumber::Rake::Task.new(:features) do |t|
 end
 
 Rake::RDocTask.new do |rd|
-  
   rd.main = "README.rdoc"
-  
   rd.rdoc_files.include("README.rdoc","lib/**/*.rb","bin/**/*")
 end
 
 task :default => [:test,:features]
-
