@@ -175,6 +175,7 @@ module Pullcrusher
       )
       info "*** Done! Pull request is at #{pr.html_url}"
     end
-end
+
+  end
 
 end
