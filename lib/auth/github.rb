@@ -48,7 +48,7 @@ class GitHubAuth
   end
 
   def ask_password
-    ask("Enter your Github password (this will NOT be stored): ") { |q| q.echo = '*' }
+    ask("Enter your GitHub password (this will NOT be stored): ") { |q| q.echo = '*' }
   end
 
 end

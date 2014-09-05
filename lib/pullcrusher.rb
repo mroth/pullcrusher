@@ -79,7 +79,7 @@ module Pullcrusher
     #
     # Returns an array containing both a Results hash, and the fs_repo reference that was cloned
     def process_repo(repo_name)
-      info "*** Asking Github to find us the URI for #{repo_name}"
+      info "*** Asking GitHub to find us the URI for #{repo_name}"
       orig_repo = repo_from_shortname(repo_name)
 
       info "*** Cloning #{orig_repo.ssh_url} to local filesystem"

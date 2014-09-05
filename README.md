@@ -41,7 +41,7 @@ Simply type "Y" if you like and you are done!
 ### Sample output
 
     % pullcrusher waferbaby/usesthis
-    *** Asking Github to find us the URI for waferbaby/usesthis
+    *** Asking GitHub to find us the URI for waferbaby/usesthis
     *** Cloning git@github.com:waferbaby/usesthis.git to local filesystem
     *** Finding and processing any candidate files
         public/images/interviews/chris.ilias.knives.jpg
@@ -76,11 +76,11 @@ this is something we need to add to pullcrusher).
 ### GitHub Credentials
 The first time you run pullcrusher, it will ask for your GitHub username
 and password to obtain a oAuth token (or possibly just your password, if
-it can locate your Github username in your git configuration).  This is
+it can locate your GitHub username in your git configuration).  This is
 totally cool and awesome, but if you don't want that token on your hard
 drive for any reason, its located at `~/.config/pullcrusher.yml`.
 
-We use this so we can use the Github API to handle forking
+We use this so we can use the GitHub API to handle forking
 repositories.
 
 ## Contributing
