@@ -39,7 +39,7 @@ class GitHubAuth
       auth = auth_client.create_authorization(:scopes => SCOPES, :note => NOTE)
     end
     File.open(CREDENTIALS, 'w') do |f|
-      f.puts({ :login => login, :oauth_token => auth.token }.to_yaml)
+      f.puts({ :login => login, :access_token => auth.token }.to_yaml)
     end
   end
 
@@ -52,4 +52,3 @@ class GitHubAuth
   end
 
 end
-
