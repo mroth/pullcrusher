@@ -15,11 +15,11 @@ and [octokit](https://github.com/pengwynn/octokit).
 
 Get dependencies for image optimization, on MacOSX, using homebrew:
 
-    brew install advancecomp gifsicle jhead jpegoptim jpeg optipng pngcrush
+    brew install advancecomp gifsicle jhead jpegoptim jpeg optipng pngcrush pngquant
 
 Debian/Ubuntu:
 
-    sudo apt-get install -y advancecomp gifsicle jpegoptim libjpeg-progs optipng pngcrush
+    sudo apt-get install -y advancecomp gifsicle jhead jpegoptim libjpeg-progs optipng pngcrush pngquant
 
 ## Installation
 
