@@ -2,11 +2,15 @@
 require File.expand_path('../lib/pullcrusher/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["Matthew Rothenberg"]
-  gem.email         = ["mrothenberg@gmail.com"]
-  gem.description   = %q{Optimize all images in a GitHub repository, then easily send a pull request with the changes.}
-  gem.summary       = %q{Optimize all images in a GitHub repository, then easily send a pull request with the changes.}
-  gem.homepage      = "http://github.com/mroth/pullcrusher"
+  gem.authors     = ["Matthew Rothenberg"]
+  gem.email       = ["mrothenberg@gmail.com"]
+  gem.summary     = "Optimize all images in a GitHub repo and make pull request."
+  gem.description = <<-EOF
+    Optimize all images in a GitHub repository losslessly, then easily send a
+    pull request with the changes for review.
+  EOF
+  gem.homepage    = "http://github.com/mroth/pullcrusher"
+  gem.license     = "MIT"
 
   gem.add_development_dependency 'rdoc',    '~> 4.1.1'
   gem.add_development_dependency 'aruba',   '~> 0.6.1'
