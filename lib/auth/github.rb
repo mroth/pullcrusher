@@ -1,9 +1,6 @@
 #
 # stating point for this was this gist: https://gist.github.com/2771702
 #
-
-# Use Octokit 1.3.0 or higher for great justice (and Authorizations)
-#require 'bundler/setup' #this was causing trouble with VERSION
 require 'octokit'
 require 'yaml'
 require 'highline/import'
@@ -39,7 +36,7 @@ class GitHubAuth
       auth = auth_client.create_authorization(:scopes => SCOPES, :note => NOTE)
     end
     File.open(CREDENTIALS, 'w') do |f|
-      f.puts({ :login => login, :oauth_token => auth.token }.to_yaml)
+      f.puts({ :login => login, :access_token => auth.token }.to_yaml)
     end
   end
 
@@ -48,8 +45,7 @@ class GitHubAuth
   end
 
   def ask_password
-    ask("Enter your Github password (this will NOT be stored): ") { |q| q.echo = '*' }
+    ask("Enter your GitHub password (this will NOT be stored): ") { |q| q.echo = '*' }
   end
 
 end
-

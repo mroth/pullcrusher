@@ -6,3 +6,4 @@ install jpegoptim
 install jpeg
 install optipng
 install pngcrush
+install pngquant

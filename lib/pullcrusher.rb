@@ -1,3 +1,13 @@
+# NOTE: This was one of the first things I ever wrote in Ruby, & I was a _much_
+# poorer programmer back then!  A pull request to clean it up and modernize it
+# would very welcome, but I've moved on to other projects and it isn't worth it
+# for me to do it myself since it currently performs its function.
+#
+# Good luck.
+#
+# xoxo,
+# -mroth
+
 require "pullcrusher/version"
 require "auth/github"
 
@@ -79,7 +89,7 @@ module Pullcrusher
     #
     # Returns an array containing both a Results hash, and the fs_repo reference that was cloned
     def process_repo(repo_name)
-      info "*** Asking Github to find us the URI for #{repo_name}"
+      info "*** Asking GitHub to find us the URI for #{repo_name}"
       orig_repo = repo_from_shortname(repo_name)
 
       info "*** Cloning #{orig_repo.ssh_url} to local filesystem"
@@ -175,6 +185,7 @@ module Pullcrusher
       )
       info "*** Done! Pull request is at #{pr.html_url}"
     end
-end
+
+  end
 
 end
