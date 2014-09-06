@@ -1,3 +1,13 @@
+# NOTE: This was one of the first things I ever wrote in Ruby, & I was a _much_
+# poorer programmer back then!  A pull request to clean it up and modernize it
+# would very welcome, but I've moved on to other projects and it isn't worth it
+# for me to do it myself since it currently performs its function.
+#
+# Good luck.
+#
+# xoxo,
+# -mroth
+
 require "pullcrusher/version"
 require "auth/github"
 

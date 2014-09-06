@@ -95,13 +95,7 @@ I'm trying to learn more about using tests so bonus points if you
 include a test for your new functionality or fix. (Or, if you just want
 to write some tests for existing functionality, that's awesome too!)
 
-## TODO
-Things that still need to be done before v0.0.1 of this gem gets
-released.
-
-  * Minimal error handling (somewhat taken care of since Methadone handles exceptions okay) √
-  * Handle your own repos not just others (cant do a pull request
-    really? I guess just leave it in branch and ask person to do
-    manually?) (PUNTING ON THIS TILL NEXT VERSION)
-  * Some very very basic tests, and setup travis-ci to ensure we run on
-    ruby 1.8.7 as well. √
+NOTE: This was one of the first things I ever wrote in Ruby, and I was a much
+poorer programmer back then!  A pull request to clean it up and modernize it
+would very welcome, but I've moved on to other projects and it isn't worth it
+for me to do it myself since it currently performs its function.
