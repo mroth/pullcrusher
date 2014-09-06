@@ -1,3 +1,10 @@
+0.1.0 (5 September 2014)
+  * Update most dependencies so things should work more reliably with all the
+    changes in the world since I first wrote this.
+  * Uses latest version of `image_optim`, which now requires `pngquant` for
+    insanity-level PNG optimization powers.
+  * Drop support for Ruby 1.8.7 as it is EOL.
+
 0.0.3 (18 March 2014)
   * fix gem install issue on 1.9.3
 
